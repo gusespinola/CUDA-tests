@@ -33,6 +33,11 @@ void random_floats(float *a, float size)
 }
 
 int main(void) {
+    int num_SMs;
+    int devId = 0; // Unique GPU
+    cudaDeviceGetAttribute(&num_SMs, cudaDevAttrMultiProcessorCount, devId); // Y devId?
+    printf("Number of SMs: %d\n", num_SMs);
+
     int i;
     float result;
     float *a, *b, *c; // host copies of a, b, c
